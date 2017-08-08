@@ -57,9 +57,16 @@ public final class RyMain
         options.addOption(Option.builder("c").longOpt("controller").hasArgs().desc("controller name").build());
         options.addOption(Option.builder("clean").desc("clean").build());
         options.addOption(Option.builder("s").longOpt("script").hasArgs().desc("execution script").build());
+        options.addOption(Option.builder("v").longOpt("version").desc("version information").build());
 
         CommandLine cmdline = parser.parse(options, args);
 
+        if (cmdline.hasOption("version"))
+        {
+            final Package p = Package.getPackage("org.reaktivity.ry.internal");
+            final String version = p.getSpecificationVersion();
+            System.out.println("Version: "+ version);
+        }
         if (cmdline.hasOption("help"))
         {
             HelpFormatter formatter = new HelpFormatter();
