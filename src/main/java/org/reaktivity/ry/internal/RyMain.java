@@ -27,13 +27,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
 import java.util.function.Predicate;
 
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-import org.agrona.concurrent.SigIntBarrier;
+import org.agrona.ErrorHandler;
+import org.agrona.concurrent.SigInt;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -58,6 +60,7 @@ public final class RyMain
         options.addOption(Option.builder("clean").desc("clean").build());
         options.addOption(Option.builder("s").longOpt("script").hasArgs().desc("execution script").build());
         options.addOption(Option.builder("v").longOpt("version").desc("version information").build());
+        options.addOption(Option.builder("x").longOpt("exit").desc("exit on error").build());
 
         CommandLine cmdline = parser.parse(options, args);
 
@@ -78,6 +81,7 @@ public final class RyMain
                     format("%sorg.reaktivity.reaktor%s", tmpDirName(), File.separator));
             String[] nuklei = cmdline.getOptionValues("nukleus");
             String[] controllers = cmdline.getOptionValues("controller");
+            boolean exitOnError = cmdline.hasOption('x');
 
             Properties properties = new Properties();
             properties.setProperty(Configuration.DIRECTORY_PROPERTY_NAME, directory);
@@ -111,11 +115,16 @@ public final class RyMain
                 .forEach(File::delete);
             }
 
+            CountDownLatch latch = new CountDownLatch(1);
+            Runnable errorTask = exitOnError ? latch::countDown : () -> {};
+            int errorCount[] = new int[1];
+            ErrorHandler handleError = ex -> handleError(ex, errorCount, errorTask);
+
             try (Reaktor reaktor = Reaktor.builder()
                 .config(config)
                 .nukleus(includeNuklei)
                 .controller(includeControllers)
-                .errorHandler(ex -> ex.printStackTrace(System.err))
+                .errorHandler(handleError)
                 .build()
                 .start())
             {
@@ -135,18 +144,29 @@ public final class RyMain
                 bindings.put("reaktor", reaktor);
 
                 String script = cmdline.getOptionValue("script");
-                if (script == null)
-                {
-                    new SigIntBarrier().await();
-                }
-                else
+                if (script != null)
                 {
                     engine.eval(new InputStreamReader(new FileInputStream(script)), bindings);
-                    new SigIntBarrier().await();
                 }
 
+                SigInt.register(latch::countDown);
+
+                latch.await();
             }
+
+            System.exit(errorCount[0]);
         }
     }
 
+    private static void handleError(
+        Throwable ex,
+        int[] errorCount,
+        Runnable errorTask)
+    {
+        errorCount[0]++;
+
+        ex.printStackTrace(System.err);
+
+        errorTask.run();
+    }
 }
