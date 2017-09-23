@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.reaktivity</groupId>
   <artifactId>ry</artifactId>
-  <version>0.40</version>
+  <version>0.41</version>
   <packaging>jar</packaging>
   <name>Reaktivity Tool for Java</name>
   <description>Reaktivity Tool for Java</description>
@@ -55,7 +55,7 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-tcp</artifactId>
-        <version>0.14</version>
+        <version>0.15</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -65,7 +65,7 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http</artifactId>
-        <version>0.25</version>
+        <version>0.26</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -75,12 +75,12 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http2</artifactId>
-        <version>0.30</version>
+        <version>0.31</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http-cache</artifactId>
-        <version>0.16</version>
+        <version>0.17</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
