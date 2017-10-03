@@ -82,6 +82,11 @@
         <artifactId>nukleus-http-cache</artifactId>
         <version>0.13</version>
       </dependency>
+      <dependency>
+        <groupId>org.reaktivity</groupId>
+        <artifactId>nukleus-socks</artifactId>
+        <version>develop-SNAPSHOT</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -113,6 +118,10 @@
     <dependency>
       <groupId>org.reaktivity</groupId>
       <artifactId>nukleus-http-cache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.reaktivity</groupId>
+      <artifactId>nukleus-socks</artifactId>
     </dependency>
   </dependencies>
 
