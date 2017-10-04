@@ -21,18 +21,17 @@
 
   <developers>
     <developer>
-      <id>reaktivity.org</id>
-      <name>The Reaktivity Project Contributors</name>
-      <url>http://reaktivity.org/</url>
-      <organization>The Reaktivity Project</organization>
-      <organizationUrl>http://reaktivity.org/</organizationUrl>
+      <name>Kaazing Corporation</name>
+      <url>https://github.com/kaazing</url>
+      <organization>Kaazing Corporation</organization>
+      <organizationUrl>http://kaazing.org</organizationUrl>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/reaktivity/ry.java</connection>
-    <developerConnection>scm:git:https://github.com/reaktivity/ry.java</developerConnection>
-    <url>https://github.com/reaktivity/ry.java</url>
+    <url>https://github.com/kaazing/launcher-ry.java</url>
+    <connection>scm:git:https://github.com/kaazing/launcher-ry.java.git</connection>
+    <developerConnection>${project.scm.connection}</developerConnection>
   </scm>
 
   <properties>
@@ -194,14 +193,15 @@
       <id>release</id>
 
       <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
+        <downloadUrl>https://repository.kaazing.us/repository/maven-private/</downloadUrl>
         <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+          <id>kaazing.private</id>
+          <url>https://repository.kaazing.us/repository/mvn-private-releases/</url>
         </repository>
+        <snapshotRepository>
+          <id>kaazing.private</id>
+          <url>https://repository.kaazing.us/repository/mvn-private-snapshots/</url>
+          </snapshotRepository>
       </distributionManagement>
 
       <build>
@@ -248,16 +248,6 @@
                 </goals>
               </execution>
             </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
