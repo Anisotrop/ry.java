@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.reaktivity</groupId>
   <artifactId>ry</artifactId>
-  <version>0.49</version>
+  <version>0.50</version>
   <packaging>jar</packaging>
   <name>Reaktivity Tool for Java</name>
   <description>Reaktivity Tool for Java</description>
@@ -14,26 +14,24 @@
 
   <licenses>
     <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <name>Kaazing Proprietary</name>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <developers>
     <developer>
-      <id>reaktivity.org</id>
-      <name>The Reaktivity Project Contributors</name>
-      <url>http://reaktivity.org/</url>
-      <organization>The Reaktivity Project</organization>
-      <organizationUrl>http://reaktivity.org/</organizationUrl>
+      <name>Kaazing Corporation</name>
+      <url>https://github.com/kaazing</url>
+      <organization>Kaazing Corporation</organization>
+      <organizationUrl>http://kaazing.org</organizationUrl>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/reaktivity/ry.java</connection>
-    <developerConnection>scm:git:https://github.com/reaktivity/ry.java</developerConnection>
-    <url>https://github.com/reaktivity/ry.java</url>
+    <url>https://github.com/kaazing/launcher-ry.java</url>
+    <connection>scm:git:https://github.com/kaazing/launcher-ry.java.git</connection>
+    <developerConnection>${project.scm.connection}</developerConnection>
   </scm>
 
   <properties>
@@ -60,7 +58,7 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-tls</artifactId>
-        <version>0.21</version>
+        <version>0.22</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -70,7 +68,7 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-ws</artifactId>
-        <version>0.25</version>
+        <version>0.26</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -173,7 +171,7 @@
               <transformers>
                 <transformer
                   implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>org.reaktivity.ry.internal.RyMain</mainClass>
+                  <mainClass>org.kaazing.ry.internal.RyMain</mainClass>
                   <manifestEntries>
                     <Name>org/reaktivity/ry/</Name>
                     <Specification-Title>${project.name}</Specification-Title>
@@ -195,14 +193,15 @@
       <id>release</id>
 
       <distributionManagement>
-        <snapshotRepository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
+        <downloadUrl>https://repository.kaazing.us/repository/maven-private/</downloadUrl>
         <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+          <id>kaazing.private</id>
+          <url>https://repository.kaazing.us/repository/mvn-private-releases/</url>
         </repository>
+        <snapshotRepository>
+          <id>kaazing.private</id>
+          <url>https://repository.kaazing.us/repository/mvn-private-snapshots/</url>
+          </snapshotRepository>
       </distributionManagement>
 
       <build>
@@ -249,16 +248,6 @@
                 </goals>
               </execution>
             </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
