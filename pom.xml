@@ -58,7 +58,7 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-tls</artifactId>
-        <version>0.21</version>
+        <version>0.22</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -68,7 +68,7 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-ws</artifactId>
-        <version>0.25</version>
+        <version>0.26</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
