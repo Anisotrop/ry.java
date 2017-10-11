@@ -15,12 +15,14 @@
  */
 var InetAddress = Java.type('java.net.InetAddress');
 
-var port = 1050;
+var inPort = 8080;
+var outPort = 10000;
+
 var address = InetAddress.getByName("127.0.0.1");
-tcpController.routeClient("tcp", 0, "127.0.0.1", 5001, null)
+tcpController.routeClient("tcp", 0, "127.0.0.1", outPort, null)
     .thenCompose(function (tcpOutputRef) {
-        return tcpController.routeServer("any", port, "tcp", tcpOutputRef, address);
+        return tcpController.routeServer("any", inPort, "tcp", tcpOutputRef, address);
     }).thenAccept(function () {
-        print("TCP proxy bound to localhost:1050");
+        print("TCP proxy bound to localhost:" + inPort);
     });
 
