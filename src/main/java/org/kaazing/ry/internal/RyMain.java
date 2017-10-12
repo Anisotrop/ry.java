@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package org.reaktivity.ry.internal;
+package org.kaazing.ry.internal;
 import static java.lang.String.format;
 import static java.nio.file.FileVisitOption.FOLLOW_LINKS;
 import static java.util.Arrays.binarySearch;
@@ -66,7 +66,7 @@ public final class RyMain
 
         if (cmdline.hasOption("version"))
         {
-            final Package p = Package.getPackage("org.reaktivity.ry.internal");
+            final Package p = Package.getPackage("org.kaazing.ry.internal");
             final String version = p.getSpecificationVersion();
             System.out.println("Version: "+ version);
         }
