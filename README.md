@@ -2,8 +2,8 @@
 
 [![Build Status][build-status-image]][build-status]
 
-[build-status-image]: https://travis-ci.org/reaktivity/ry.java.svg?branch=develop
-[build-status]: https://travis-ci.org/reaktivity/ry.java
+[build-status-image]: https://travis-ci.com/kaazing/launcher-ry.java.svg?branch=develop
+[build-status]: https://travis-ci.com/kaazing/launcher-ry.java
 
 ### Examples
 
