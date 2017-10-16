@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.reaktivity</groupId>
   <artifactId>ry</artifactId>
-  <version>0.51.0</version>
+  <version>develop-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Reaktivity Tool for Java</name>
   <description>Reaktivity Tool for Java</description>
