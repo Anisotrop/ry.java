@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.51.1](https://github.com/kaazing/launcher-ry.java/tree/0.51.1) (2017-10-28)
+[Full Changelog](https://github.com/kaazing/launcher-ry.java/compare/0.51.0...0.51.1)
+
+**Merged pull requests:**
+
+- Security [\#15](https://github.com/kaazing/launcher-ry.java/pull/15) ([cmebarrow](https://github.com/cmebarrow))
+- Update dependencies to the latest [\#14](https://github.com/kaazing/launcher-ry.java/pull/14) ([dpwspoon](https://github.com/dpwspoon))
+
 ## [0.51.0](https://github.com/kaazing/launcher-ry.java/tree/0.51.0) (2017-10-16)
 [Full Changelog](https://github.com/kaazing/launcher-ry.java/compare/0.50...0.51.0)
 
