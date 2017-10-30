@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.52.0](https://github.com/kaazing/launcher-ry.java/tree/0.52.0) (2017-10-30)
+[Full Changelog](https://github.com/kaazing/launcher-ry.java/compare/0.51.1...0.52.0)
+
+**Merged pull requests:**
+
+- Updates to versions and includes http inject [\#16](https://github.com/kaazing/launcher-ry.java/pull/16) ([dpwspoon](https://github.com/dpwspoon))
+
 ## [0.51.1](https://github.com/kaazing/launcher-ry.java/tree/0.51.1) (2017-10-28)
 [Full Changelog](https://github.com/kaazing/launcher-ry.java/compare/0.51.0...0.51.1)
 
