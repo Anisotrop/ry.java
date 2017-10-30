@@ -48,44 +48,54 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>reaktor</artifactId>
-        <version>0.27</version>
+        <version>0.31</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-tcp</artifactId>
-        <version>0.18</version>
+        <version>0.22</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-tls</artifactId>
-        <version>0.25</version>
+        <version>0.30</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http</artifactId>
-        <version>0.28</version>
+        <version>0.32</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-ws</artifactId>
-        <version>0.26</version>
+        <version>0.30</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http2</artifactId>
-        <version>0.34</version>
+        <version>0.36</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http-cache</artifactId>
-        <version>0.19</version>
+        <version>0.22</version>
       </dependency>
+      <dependency>
+        <groupId>com.kaazing</groupId>
+        <artifactId>nukleus-http-inject</artifactId>
+        <version>0.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.reaktivity</groupId>
+        <artifactId>nukleus-auth-jwt</artifactId>
+        <version>0.1</version>
+      </dependency>
+    </dependencies>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-socks</artifactId>
         <version>develop-SNAPSHOT</version>
       </dependency>
-    </dependencies>
   </dependencyManagement>
 
   <dependencies>
@@ -116,6 +126,14 @@
     <dependency>
       <groupId>org.reaktivity</groupId>
       <artifactId>nukleus-http-cache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.kaazing</groupId>
+      <artifactId>nukleus-http-inject</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.reaktivity</groupId>
+      <artifactId>nukleus-auth-jwt</artifactId>
     </dependency>
     <dependency>
       <groupId>org.reaktivity</groupId>
@@ -266,6 +284,10 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <configuration>
+                  <keyname>${gpg.keyname}</keyname>
+                  <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                </configuration>
               </execution>
             </executions>
           </plugin>
