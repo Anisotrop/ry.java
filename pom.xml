@@ -58,12 +58,12 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-tls</artifactId>
-        <version>0.28</version>
+        <version>0.30</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http</artifactId>
-        <version>0.31</version>
+        <version>0.32</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -78,7 +78,12 @@
       <dependency>
         <groupId>org.reaktivity</groupId>
         <artifactId>nukleus-http-cache</artifactId>
-        <version>0.21</version>
+        <version>0.22</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kaazing</groupId>
+        <artifactId>nukleus-http-inject</artifactId>
+        <version>0.1.0</version>
       </dependency>
       <dependency>
         <groupId>org.reaktivity</groupId>
@@ -116,6 +121,10 @@
     <dependency>
       <groupId>org.reaktivity</groupId>
       <artifactId>nukleus-http-cache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.kaazing</groupId>
+      <artifactId>nukleus-http-inject</artifactId>
     </dependency>
     <dependency>
       <groupId>org.reaktivity</groupId>
